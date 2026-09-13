@@ -15,7 +15,7 @@ builder.Services.Configure<FormOptions>(options =>
 builder.Services.AddCors(options => options.AddPolicy("Frontend", policy =>
     policy.WithOrigins(
             builder.Configuration["Frontend:Url"] ?? "http://localhost:5173",
-            "http://localhost:4173")
+            "roofline-construction-website.vercel.app")
         .AllowAnyHeader()
         .AllowAnyMethod()));
 builder.Services.AddRateLimiter(options =>

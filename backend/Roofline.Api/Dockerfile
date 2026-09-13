@@ -5,13 +5,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 WORKDIR /src
 
-COPY ["Roofline.Api/Roofline.Api.csproj", "Roofline.Api/"]
+COPY ["Roofline.Api.csproj", "./"]
 
-RUN dotnet restore "Roofline.Api/Roofline.Api.csproj"
+RUN dotnet restore "Roofline.Api.csproj"
 
 COPY . .
-
-WORKDIR "/src/Roofline.Api"
 
 RUN dotnet publish "Roofline.Api.csproj" \
     -c Release \
@@ -28,7 +26,6 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-# Render provides the PORT environment variable
 ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT:-8080}
 
 EXPOSE 8080

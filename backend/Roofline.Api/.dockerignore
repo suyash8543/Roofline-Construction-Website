@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+
+.git/
+.gitignore
+
+*.user
+*.suo
+*.pfx
+*.p12
+
+appsettings.Local.json
+appsettings.*.Local.json

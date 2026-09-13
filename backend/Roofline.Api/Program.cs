@@ -13,12 +13,19 @@ builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 80 * 1024 * 1024;
 });
-builder.Services.AddCors(options => options.AddPolicy("Frontend", policy =>
-    policy.WithOrigins(
-            builder.Configuration["Frontend:Url"] ?? "http://localhost:5173",
-            "roofline-construction-website.vercel.app")
-        .AllowAnyHeader()
-        .AllowAnyMethod()));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            .WithOrigins(
+                "https://roofline-construction-website.vercel.app",
+                "http://localhost:5173"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 builder.Services.AddRateLimiter(options =>
 {
     options.AddFixedWindowLimiter("estimate", limiter =>

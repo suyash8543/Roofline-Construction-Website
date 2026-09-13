@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #111315; background: #f5f3ee; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input, textarea, select { font: inherit; }
+.nav-glass { background: rgba(17,19,21,.68); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 12px 40px rgba(0,0,0,.18); }
+::selection { background: #c66b35; color: white; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #111315; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 20px; }
+
+/* Navbar anchor targets */
+section[id] { scroll-margin-top: 110px; }
